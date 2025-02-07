@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Run Speech to Text",
+        "type": "shell",
+        "command": "cd speech to text && python main.py",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "Run Streamlit in New Terminal",
+        "type": "shell",
+        "command": "start cmd /k \"streamlit run app.py\"",
+        "group": "none",
+        "problemMatcher": []
+      }
+    ]
+  }
+  
