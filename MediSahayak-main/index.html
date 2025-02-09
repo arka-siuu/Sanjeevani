@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Sanjeevani</title>
+  <meta name="title" content="MediSahayak">
+  <!--meta name="description" content="This is a madical html template made by codewithsadee
+
+
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+  <link rel="preload" as="image" href="./assets/images/hero-bg.png">
+  <style>
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9; /* Background color */
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Position the modal */
+      z-index: 1; /* Make sure it appears above everything else */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scrolling if needed */
+      background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  }
+  
+  /* Modal content */
+  .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; /* Center the modal vertically and horizontally */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; /* 80% of the container width */
+  }
+  
+  /* Close button */
+  .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  
+  /* Yes and No buttons */
+  .button-container {
+      text-align: center;
+      margin-top: 20px;
+  }
+  
+  .button-container button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      cursor: pointer;
+  }
+  
+  .button-container button.highlight {
+      background-color: #4CAF50; /* Green */
+      color: white;
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Center the modal vertically and horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Set width */
+    max-width: 400px; /* Maximum width */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center align text */
+}
+
+/* Yes and No buttons */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button-container button:focus {
+    outline: none; /* Remove focus outline */
+}
+
+.button-container button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.button-container button.highlight {
+    background-color: #45a049; /* Darker green */
+}
+.button-container {
+  display: flex; /* Use flexbox for horizontal layout */
+  justify-content: center; /* Center the buttons horizontally */
+  margin-top: 20px;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border: none;
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.button-container button:focus {
+  outline: none; /* Remove focus outline */
+}
+
+.button-container button:hover {
+  background-color: #00adb3; /* Darker green on hover */
+}
+
+.button-container button.highlight {
+  background-color: #00adb3; /* Darker green */
+}
+.navbar-link:hover {
+  background-color: #00adb3;
+  color: black;
+}
+
+/* Dropdown container */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Style for dropdown links */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #00adb3;
+}
+
+/* Show the dropdown content when hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+    </style>
+</head>
+
+<body id="top">
+  
+  <!-- 
+    - #PRELOADER
+  -->
+
+  <div class="preloader" data-preloader>
+    <div class="circle"></div>
+  </div>
+
+
+  <script>
+    // Scroll to the top of the page on page load
+    window.onbeforeunload = function() {
+      window.scroll(0, 0);
+  };
+  window.onload = function(){
+    window.scroll(0,0);
+  };
+    </script>
+
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src=".\assets\images\medisahayak-high-resolution-logo-white-transparent.png" width="200" height="46" alt="Doclab home">
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+
+          <a href="#" class="logo">
+            <img src=".\assets\images\medisahayak-high-resolution-logo-white-transparent.png" width="200" height="46" alt="Doclab home">
+          </a>
+
+          <button class="nav-close-btn" aria-label="clsoe menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+
+        </div>
+
+       
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md" onmouseover="showDropdown()" onmouseout="hideDropdown()" id="profileLink">PROFILE</a>
+            <div id="profileDropdownContainer" style="position: relative;">
+                <div id="profileDropdown" class="dropdown-content" style="display: none; position: absolute; background-color: #f9f9f9; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1;" onmouseover="keepDropdownOpen()" onmouseout="dropdownLeft()">
+                    <a href="#" style="padding: 10px; display: block;">Name</a>
+                    <a href="#" style="padding: 10px; display: block;">Aadhaar no.</a>
+                    <a href="#" style="padding: 10px; display: block;">Medical history</a>
+                    <a href="#" style="padding: 10px; display: block;">My doctors</a>
+                    <a href="#" style="padding: 10px; display: block;">My appointments</a>
+                    <a href="#" style="padding: 10px; display: block;">Logout</a>
+                </div>
+            </div>
+        </li>
+        <script>
+        var dropdownHovered = false;
+        var profileLinkHovered = false;
+        
+        function showDropdown() {
+            var dropdownContent = document.getElementById("profileDropdown");
+            dropdownContent.style.display = "block";
+        }
+        
+        function hideDropdown() {
+            if (!dropdownHovered && !profileLinkHovered) {
+                var dropdownContent = document.getElementById("profileDropdown");
+                dropdownContent.style.display = "none";
+            }
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            var dropdownContent = document.getElementById("profileDropdown");
+            if (!event.target.matches('.navbar-link') && dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            }
+        }
+        
+        function keepDropdownOpen() {
+            dropdownHovered = true;
+        }
+        
+        function dropdownLeft() {
+            dropdownHovered = false;
+            hideDropdown();
+        }
+        
+        function hideDropdown() {
+          if (!dropdownHovered && !profileLinkHovered) {
+              var dropdownContent = document.getElementById("profileDropdown");
+              dropdownContent.style.display = "none";
+          }
+      }
+      
+      function keepDropdownOpen() {
+          dropdownHovered = true;
+          var dropdownContent = document.getElementById("profileDropdown");
+          dropdownContent.style.display = "block";
+      }
+      
+      function dropdownLeft() {
+          dropdownHovered = false;
+          hideDropdown();
+      }
+        document.getElementById("profileLink").addEventListener("mouseover", function() {
+            profileLinkHovered = true;
+        });
+        
+        document.getElementById("profileLink").addEventListener("mouseout", function() {
+            profileLinkHovered = false;
+            setTimeout(function() {
+                hideDropdown();
+            }, 200);
+        });
+        
+        document.getElementById("profileDropdownContainer").addEventListener("mouseover", function() {
+            dropdownHovered = true;
+        });
+        
+        document.getElementById("profileDropdownContainer").addEventListener("mouseout", function() {
+            dropdownHovered = false;
+            setTimeout(function() {
+                hideDropdown();
+            }, 200);
+        });
+        </script>
+        
+        <ul class="navbar">
+          
+          <li class="navbar-item">
+              <a href="#" class="navbar-link title-md" onmouseover="showLanguageDropdown()" onmouseout="hideLanguageDropdown()">LANGUAGE</a>
+              <div id="languageDropdown" class="dropdown-content" style="display: none;">
+                  <a href="#">Hindi</a>
+                  <a href="#">English</a>
+                  <a href="#">Bengali</a>
+                  <a href="#">Telugu</a>
+                  <a href="#">Marathi</a>
+                  <a href="#">Tamil</a>
+                  <a href="#">Urdu</a>
+                  <a href="#">Gujarati</a>
+                  <a href="#">Kannada</a>
+                  <a href="#">Odia</a>
+                  <a href="#">Punjabi</a>
+                  <a href="#">Malayalam</a>
+                  <a href="#">Assamese</a>
+                  <a href="#">Maithili</a>
+                  <a href="#">Sanskrit</a>
+                  <a href="#">Kashmiri</a>
+                
+              </div>
+          </li>
+      </ul>
+      
+      <script>
+      function showProfileDropdown() {
+          var dropdownContent = document.getElementById('profileDropdown');
+          dropdownContent.style.display = "block";
+      }
+      
+      function hideProfileDropdown() {
+          var dropdownContent = document.getElementById('profileDropdown');
+          dropdownContent.style.display = "none";
+      }
+      
+      function showLanguageDropdown() {
+          var dropdownContent = document.getElementById('languageDropdown');
+          dropdownContent.style.display = "block";
+      }
+      
+      function hideLanguageDropdown() {
+          var dropdownContent = document.getElementById('languageDropdown');
+          dropdownContent.style.display = "none";
+      }
+      function hideProfileDropdown() {
+        var dropdownContent = document.getElementById('profileDropdown');
+        if (!isCursorOverDropdown(dropdownContent)) {
+            dropdownContent.style.display = "none";
+        }
+    }
+    
+    function hideLanguageDropdown() {
+        var dropdownContent = document.getElementById('languageDropdown');
+        if (!isCursorOverDropdown(dropdownContent)) {
+            dropdownContent.style.display = "none";
+        }
+    }
+    
+    function isCursorOverDropdown(dropdown) {
+        var dropdownRect = dropdown.getBoundingClientRect();
+        var cursorX = event.clientX;
+        var cursorY = event.clientY;
+        return (cursorX >= dropdownRect.left && cursorX <= dropdownRect.right && cursorY >= dropdownRect.top && cursorY <= dropdownRect.bottom);
+    }
+    
+    document.getElementById('profileDropdown').addEventListener('mouseout', function(event) {
+        if (!isCursorOverDropdown(this)) {
+            this.style.display = "none";
+        }
+    });
+    
+    document.getElementById('languageDropdown').addEventListener('mouseout', function(event) {
+        if (!isCursorOverDropdown(this)) {
+            this.style.display = "none";
+        }
+    })
+      </script>
+          <li class="navbar-item">
+            <a href="#asdfg" class="navbar-link title-md">SERVICES</a>
+          </li>
+
+          <li class="navbar-item">
+            
+            <a href="http://localhost:5173/" class="navbar-link title-md">
+              <button style="color: white;">EMERGENCY</button>
+          </a>
+          
+
+<!-- The modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Emergency Alert</h2>
+    <p>Do you want to call an ambulance?</p>
+    <div class="button-container">
+        <button class="highlight" onclick="callAmbulance()">Yes</button>
+        <button onclick="closeModal()">No</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Function to open the modal
+function openModal() {
+    window.scroll(0, 0);
+    var modal = document.getElementById('myModal');
+    modal.style.display = "block";
+    // Highlight the Yes button by default
+    var yesButton = modal.querySelector('.highlight');
+    yesButton.focus();
+}
+
+// Function to close the modal
+function closeModal() {
+    var modal = document.getElementById('myModal');
+    modal.style.display = "none";
+}
+
+// Function to call ambulance (triggered when Yes button is clicked)
+function callAmbulance() {
+    alert("Calling ambulance");
+    closeModal();
+}
+
+// Close the modal when clicking outside of it
+window.onclick = function(event) {
+    var modal = document.getElementById('myModal');
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+</script>
+
+          </li>
+
+          <li class="navbar-item">
+            <a href="#bob" class="navbar-link title-md">CONTACT US</a>
+          </li>
+
+        </ul>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="twitter.com" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="facebook.com" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="pinterest.com" class="social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="youtube.com" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <a href="https://esanjeevani.mohfw.gov.in/" class="btn has-before title-md">CALL US</a>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+<div id="asdasd"></div>
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" style="background-image: url('./assets/images/hero-bg.png')" aria-label="home" id = "hero">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <p class="hero-subtitle has-before" data-reveal="left">Empowering Rural India</p>
+
+            <h1 class="headline-lg hero-title" data-reveal="left">
+              SANJEEVANI <br>
+              YOUR HEALTH COMPANION.
+            </h1>
+
+            <div class="hero-card" data-reveal="left">
+
+              <p class="title-lg card-text" id = "asdfg">
+                LOGIN
+              </p>
+
+              <div class="wrapper">
+
+                <div class="input-wrapper title-lg">
+                  <input type="text" name="location" placeholder="CONTACT" class="input-field">
+
+                  
+                </div>
+                <a href = "#asdfg">
+                  <button class="btn has-before">
+                    
+
+                    <span class="span title-md">LOGIN
+                    
+                    </span>
+                  </button>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+
+          <figure class="hero-banner" data-reveal="right">
+            <img src=".\assets\images\image-Photoroom.png-Photoroom.png" width="590" height="517" loading="eager" alt="hero banner"
+              class="w-100">
+          </figure>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #SERVICE
+      -->
+
+      <section class="service" aria-label="service" id = "service">
+        <div class="container">
+
+          <ul class="service-list" id = "asdf">
+
+            <li>
+              <div class="service-card" data-reveal="bottom">
+
+                <div class="card-icon">
+                  <img src="./assets/images/icon-1.png" width="71" height="71" loading="lazy" alt="icon">
+                </div>
+
+                <h3 class="headline-sm card-title">
+                  <a href="http://localhost:8501/">FOR WOMEN</a>
+                </h3>
+
+                <p class="card-text">
+                  GET PERSONALISED DIET PLAN CURATED TO YOUR MENSTRUAL JOURNEY !
+                </p>
+                <a href = "bot.html">
+                  <button class="btn-circle" aria-label="read more about psychiatry">
+                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                  </button>
+                </a>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card" data-reveal="bottom">
+
+                <div class="card-icon">
+                  <img src="./assets/images/icon-2.png" width="71" height="71" loading="lazy" alt="icon">
+                </div>
+
+                <h3 class="headline-sm card-title">
+                  <a href="#">MEDICINES</a>
+                </h3>
+
+                <p class="card-text">
+                  BUY MOST FREQUENTLY USED MEDICINES AT DISCOUNTED RATES
+                </p>
+                <a href = "medicine.html">
+                <button class="btn-circle" aria-label="read more about Gynecology">
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </button>
+              </a>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card" data-reveal="bottom">
+
+                <div class="card-icon">
+                  <img src="./assets/images/icon-3.png" width="71" height="71" loading="lazy" alt="icon">
+                </div>
+
+                <h3 class="headline-sm card-title">
+                  <a href="#">DIAGNOSIS</a>
+                </h3>
+
+                <p class="card-text">
+                  DIAGNOSE YOURSELF USING OUR AI-POWERED IMAGE PROCESSING TOOL
+                </p>
+                <a href="vaccines.html">
+                <button class="btn-circle" aria-label="read more about Pulmonology">
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </button>
+                </a>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card" data-reveal="bottom">
+
+                <div class="card-icon">
+                  <img src="./assets/images/icon-4.png" width="71" height="71" loading="lazy" alt="icon">
+                </div>
+
+                <h3 class="headline-sm card-title">
+                  <a href="http://localhost:5173/">EMERGENCY</a>
+                </h3>
+
+                <p class="card-text">
+                  QUICKLY BOOK THE NEAREST HOSPITAL AND GET AN AMBULANCE
+                </p>
+                <a href = "doctors.html">
+                <button class="btn-circle" aria-label="read more about Orthopedics">
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </button>
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" aria-labelledby="about-label">
+        <div class="container">
+
+          <div class="about-content">
+
+            <p class="section-subtitle title-lg has-after" id="about-label" data-reveal="left">About Us</p>
+
+            <h2 class="headline-md" data-reveal="left">INCORPORATING AI WITH HEALTHCARE</h2>
+
+            <p class="section-text" data-reveal="left">
+              SANJEEVANI USES AI TO TACKLE THE PROBLEMS RAISED BY RURAL MEDICAL INFRASTRUCTURE
+              
+            </p>
+
+            <ul class="tab-list" data-reveal="left">
+
+              <li>
+                <button class="tab-btn active">Vision</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Mission</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Strategy</button>
+              </li>
+
+            </ul>
+
+            <p class="tab-text" data-reveal="left">
+              Sanjeevani aims to make life easier for rural communities by providing easy access to healthcare facilities and 
+              natural solutions for quick, efficient care.
+
+            </p>
+
+            <div class="wrapper">
+
+              <ul class="about-list">
+
+                <li class="about-item" data-reveal="left">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+
+                  <span class="span">TIMELY DIAGNOSIS</span>
+                </li>
+
+                <li class="about-item" data-reveal="left">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+
+                  <span class="span">MEDICINES SUGGESTIONS</span>
+                </li>
+
+                <li class="about-item" data-reveal="left">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+
+                  <span class="span">EXPERT HEALTHCARE IN REMOTE AREAS</span>
+                </li>
+
+                <li class="about-item" data-reveal="left">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+
+                  <span class="span">EMERGENCY SERVICES</span>
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+          <figure class="about-banner" data-reveal="right">
+            <img src="./assets\images\doctorr.png" width="554" height="678" loading="lazy" alt="about banner"
+              class="w-100">
+          </figure>
+
+        </div>
+      </section>
+
+
+
+
+
+<!-- 
+        - #LISTING
+      -->
+
+      <section class="section listing" aria-labelledby="listing-label">
+        <div class="container">
+
+          <ul class="grid-list">
+
+            <li>
+              <p class="section-subtitle title-lg" id="listing-label" data-reveal="left">DOCTORS LIST</p>
+
+              <h2 class="headline-md" data-reveal="left">Browse by specialist</h2>
+            </li>
+
+            <li><a href="psychiatry.html">
+              <div class="listing-card" data-reveal="bottom">
+
+                <div class="card-icon">
+                  <img src="./assets/images/icon-1.png" width="71" height="71" loading="lazy" alt="icon">
+                </div>
+
+                <div>
+                  <h3 class="headline-sm card-title">Psychiatry</h3>
+
+                  <p class="card-text">Treatment of Mental Conditions</p>
+                </div>
+
+              </div></a>
+            </li>
+
+            <li>
+              <a href = "gynecology.html">
+              <div class="listing-card" data-reveal="bottom">
+
+                <div class="card-icon">
+                  <img src="./assets/images/icon-2.png" width="71" height="71" loading="lazy" alt="icon">
+                </div>
+
+                <div>
+                  <h3 class="headline-sm card-title">Gynecology</h3>
+
+                  <p class="card-text">Maternity And Women Care</p>
+                </div>
+              </div>
+            </a>
+            </li>
+
+            <li>
+            <a href = "pulmonogy.html">
+              <div class="listing-card" data-reveal="bottom">
+
+                <div class="card-icon">
+                  <img src="./assets/images/icon-4.png" width="71" height="71" loading="lazy" alt="icon">
+                </div>
+
+                <div>
+                  <h3 class="headline-sm card-title">Pulmonology</h3>
+
+                  <p class="card-text">Heart and Nerve Related Ailments</p>
+                </div>
+
+              </div>
+            </a>
+            </li>
+
+            <li>
+              <a href = "orthopedics.html">
+              <div class="listing-card" data-reveal="bottom">
+
+                <div class="card-icon">
+                  <img src="./assets/images/icon-5.png" width="71" height="71" loading="lazy" alt="icon">
+                </div>
+
+                <div>
+                  <h3 class="headline-sm card-title">Orthopedics</h3>
+
+                  <p class="card-text">Muscle Related Issues</p>
+                </div>
+
+              </div>
+            </a>
+            </li>
+
+            <li>
+              <a href = "pediatrics.html">
+              <div class="listing-card" data-reveal="bottom">
+
+                <div class="card-icon">
+                  <img src="./assets/images/icon-6.png" width="71" height="71" loading="lazy" alt="icon">
+                </div>
+
+                <div>
+                  <h3 class="headline-sm card-title">Pediatrics</h3>
+
+                  <p class="card-text">Children Care And Vaccination </p>
+                </div>
+
+              </div>
+            </a>
+            </li>
+
+            <li>
+              <a href = "oncology.html">
+              <div class="listing-card" data-reveal="bottom">
+
+                <div class="card-icon">
+                  <img src="./assets/images/icon-7.png" width="71" height="71" loading="lazy" alt="icon">
+                </div>
+
+                <div>
+                  <h3 class="headline-sm card-title">Oncology</h3>
+
+                  <p class="card-text">Cancer Treatment And Chemotherapy</p>
+                </div>
+
+              </div>
+            </a>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #BLOG
+      -->
+
+      <section class="section blog" aria-labelledby="blog-label" id = "ahh">
+        <div class="container">
+
+          <p class="section-subtitle title-lg text-center" id="blog-label" data-reveal="bottom">
+            News & Article
+          </p>
+
+          <h2 class="section-title headline-md text-center" data-reveal="bottom">Latest Articles</h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="blog-card has-before has-after" data-reveal="bottom">
+
+                <div class="meta-wrapper">
+
+                  <div class="card-meta">
+                    <ion-icon name="person-outline"></ion-icon>
+
+                    <span class="span">By Admin</span>
+                  </div>
+
+                  <div class="card-meta">
+                    <ion-icon name="folder-outline"></ion-icon>
+
+                    <span class="span">Specialist</span>
+                  </div>
+
+                </div>
+
+                <h3 class="headline-sm card-title">அட்மின் द्वारा | சிறப்பு நிபுணர்
+                  இன்டர்மிட்டென்ட் நோன்பு மார்பகம் புற்றுநோயை குறைக்குமா?</h3>
+
+                <time class="title-sm date" datetime="2022-01-28">22 ஏப்ரல், 2024</time>
+
+                <p class="card-text">
+                  இரவு நேரத்தில் 13 மணிநேரத்திற்கு குறைவாக நோன்பு இருப்பவர்கள், 13 மணிநேரம் அல்லது அதற்கு அதிகமாக நோன்பு 
+                </p>
+
+                <a href="#" class="btn-text title-lg">Read More</a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card has-before has-after" data-reveal="bottom">
+
+                <div class="meta-wrapper">
+
+                  <div class="card-meta">
+                    <ion-icon name="person-outline"></ion-icon>
+
+                    <span class="span">By Admin</span>
+                  </div>
+
+                  <div class="card-meta">
+                    <ion-icon name="folder-outline"></ion-icon>
+
+                    <span class="span">Specialist</span>
+                  </div>
+
+                </div>
+
+                <h3 class="headline-sm card-title">Health Risks of Excessive Paracetamol Use</h3>
+
+                <time class="title-sm date" datetime="2025-01-28">28 January, 2025</time>
+
+                <p class="card-text">
+                  Excessive intake of paracetamol without a prescription is linked to significant health risks, including acute liver failure. 
+                  Studies says taking more than 4 grams per day increases the risk of liver damage.
+                  Prolonged use can also lead to kidney damage, particularly in individuals with pre-existing conditions.
+                </p>
+
+                <a href="#" class="btn-text title-lg">Read More</a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card has-before has-after" data-reveal="bottom">
+
+                <div class="meta-wrapper">
+
+                  <div class="card-meta">
+                    <ion-icon name="person-outline"></ion-icon>
+
+                    <span class="span">By Admin</span>
+                  </div>
+
+                  <div class="card-meta">
+                    <ion-icon name="folder-outline"></ion-icon>
+
+                    <span class="span">Specialist</span>
+                  </div>
+
+                </div>
+
+                <h3 class="headline-sm card-title">बिंज ईटिंग और ड्रिंकिंग का लिवर पर क्या प्रभाव पड़ता है?</h3>
+
+                <time class="title-sm date" datetime="2022-01-28">27 अक्टूबर, 2024</time>
+
+                <p class="card-text">
+                  अल्कोहॉलिक हेपेटाइटिस: यह स्थिति लिवर में सूजन, फुलाव और लिवर कोशिकाओं के नष्ट होने की वजह से होती है। इससे लिवर में दाग पड़ जाते हैं, जिसे फाइब्रोसिस कहा जाता है। सके लक्षण धीरे-धीरे विकसित हो सकते हैं या अचानक बिंज ड्रिंकिंग के बाद दिखाई दे सकते हैं।  इनमें बुखार, पीलिया, मतली, उल्टी, पेट में दर्द और कोमलता शामिल हैं।
+                </p>
+
+                <a href="#" class="btn-text title-lg" id="bob">Read More</a>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer" style="background-image: url('./assets/images/footer-bg.png')">
+    <div class="container">
+
+      <div class="section footer-top" id="sax">
+
+        <div class="footer-brand" data-reveal="bottom">
+
+          <a href="#" class="logo">
+            <img src=".\assets\images\medisahayak-high-resolution-logo-white-transparent.png" width="0200" height="46" loading="lazy" alt="Doclab home">
+          </a>
+
+          <ul class="contact-list has-after">
+
+            <li class="contact-item">
+
+              <div class="item-icon">
+                <ion-icon name="mail-open-outline"></ion-icon>
+              </div>
+
+              <div>
+                <p>
+                  Main Email : <a href="sanjeevani@gmail.com" class="contact-link">sanjeevani@gmail.com</a>
+                </p>
+
+                <p>
+                  Inquiries : <a href="arka.mjee@gmail.com" class="contact-link">arka.mjee@gmail.com</a>
+                </p>
+              </div>
+
+            </li>
+
+            <li class="contact-item">
+
+              <div class="item-icon">
+                <ion-icon name="call-outline"></ion-icon>
+              </div>
+
+              <div>
+                <p>
+                  Office Telephone : <a href="tel:7536942015" class="contact-link">+919391581857</a>
+                </p>
+
+                <p>
+                  Mobile : <a href="tel:8007778253" class="contact-link">+919007049640</a>
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-list" data-reveal="bottom">
+
+          <p class="headline-sm footer-list-title">About Us</p>
+
+          <p class="text">
+            DEVELOPED TO HELP THE RURAL, THE REAL BHARAT !
+          </p>
+
+          <address class="address">
+            <ion-icon name="map-outline"></ion-icon>
+
+            <span class="text">
+              AB1/ 109 <br>
+              AVV AP,522503
+            </span>
+          </address>
+
+        </div>
+
+        <ul class="footer-list" data-reveal="bottom">
+
+          <li>
+            <p class="headline-sm footer-list-title">Services</p>
+          </li>
+
+          <li>
+            <a href="#" class="text footer-link">Conditions</a>
+          </li>
+
+          <li>
+            <a href="#" class="text footer-link">Medicine List</a>
+          </li>
+
+          <li>
+            <a href="#" class="text footer-link">How It Works</a>
+          </li>
+
+          <li>
+            <a href="#" class="text footer-link">Doctor List</a>
+          </li>
+
+          <li>
+            <a href="#" class="text footer-link">Health Centres</a>
+          </li>
+
+          <li>
+            <a href="#" class="text footer-link">Contact Us</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list" data-reveal="bottom">
+
+          <li>
+            <p class="headline-sm footer-list-title">Useful Links</p>
+          </li>
+
+          <li>
+            <a href="#" class="text footer-link">Conditions</a>
+          </li>
+
+          <li>
+            <a href="#" class="text footer-link">Terms of Use</a>
+          </li>
+
+          <li>
+            <a href="#" class="text footer-link">Our Services</a>
+          </li>
+
+          <li>
+            <a href="#" class="text footer-link">Join as a Developer</a>
+          </li>
+
+          <li>
+            <a href="#" class="text footer-link">Kiosks List</a>
+          </li>
+
+          <li>
+            <a href="#" class="text footer-link">Troubleshooting</a>
+          </li>
+
+        </ul>
+
+        <div class="footer-list" data-reveal="bottom">
+
+          <p class="headline-sm footer-list-title">FEEDBACK</p>
+
+          <form action="" class="footer-form">
+            <input  name="email" placeholder="" class="input-field title-lg">
+
+            <button type="submit" class="btn has-before title-md">SUBMIT</button>
+          </form>
+
+          <p class="text">
+            The feedback will be considered and acted upon by the admin team.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <p class="text copyright">
+          &copy; SANJEEVANI 2024 | All Rights Reserved by Team Sanjeevani
+        </p>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-google"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+  <script src="./assets/js/script.js"></script>
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+    window.scrollTo(0, 0);
+});
+</script>
+
+</body>
+
+</html>

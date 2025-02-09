@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaccination</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #2980b9, #2c3e50);
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #000;
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .vaccine-list {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+    .vaccine-list li {
+      display: inline-block;
+      margin: 10px;
+    }
+    .vaccine-list button {
+      padding: 8px 16px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .time-slots {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .time-slots button {
+      margin: 5px;
+      padding: 8px 16px;
+      font-size: 14px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .confirmation {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .confirmation button {
+      padding: 10px 20px;
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .confirmation button:hover {
+      background-color: #c82333;
+    }
+    .confirmation p {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Vaccination</h1>
+    <div class="vaccine-list">
+      <h2>Select a vaccine:</h2>
+      <ul>
+        <li><button onclick="selectVaccine('Pfizer')">Pfizer</button></li>
+        <li><button onclick="selectVaccine('Moderna')">Moderna</button></li>
+        <li><button onclick="selectVaccine('Johnson & Johnson')">Johnson & Johnson</button></li>
+        <li><button onclick="selectVaccine('AstraZeneca')">AstraZeneca</button></li>
+        <li><button onclick="selectVaccine('Sinovac')">Sinovac</button></li>
+        <li><button onclick="selectVaccine('Sinopharm')">Sinopharm</button></li>
+        <li><button onclick="selectVaccine('Sputnik V')">Sputnik V</button></li>
+        <li><button onclick="selectVaccine('Covaxin')">Covaxin</button></li>
+        <!-- Add more vaccine buttons as needed -->
+      </ul>
+    </div>
+    <div class="time-slots">
+      <h2>Select a time slot:</h2>
+      <button onclick="selectTimeSlot('12:00pm')">12:00pm</button>
+      <button onclick="selectTimeSlot('1:00pm')">1:00pm</button>
+      <button onclick="selectTimeSlot('2:00pm')">2:00pm</button>
+      <button onclick="selectTimeSlot('3:00pm')">3:00pm</button>
+      <button onclick="selectTimeSlot('4:00pm')">4:00pm</button>
+      <button onclick="selectTimeSlot('5:00pm')">5:00pm</button>
+      <button onclick="selectTimeSlot('6:00pm')">6:00pm</button>
+    </div>
+    <div class="confirmation">
+      <button onclick="confirmBooking()">Confirm Vaccine Booking</button>
+      <p id="confirmation-message"></p>
+    </div>
+  </div>
+
+  <script>
+    let selectedVaccine = '';
+    let selectedTimeSlot = '';
+
+    function selectVaccine(vaccine) {
+      selectedVaccine = vaccine;
+    }
+
+    function selectTimeSlot(timeSlot) {
+      selectedTimeSlot = timeSlot;
+    }
+
+    function confirmBooking() {
+      if (selectedVaccine && selectedTimeSlot) {
+        document.getElementById('confirmation-message').innerText = `Your booking has been confirmed. We will be there on ${selectedTimeSlot}.`;
+      } else {
+        alert('Please select a vaccine and a time slot before confirming booking.');
+      }
+    }
+  </script>
+</body>
+</html>

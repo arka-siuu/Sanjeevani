@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointments</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #FFC371, #FF5F6D);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #333;
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 30px;
+    }
+    .doctor-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .doctor-list li {
+      margin: 10px;
+    }
+    .doctor-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #6C5B7B;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .doctor-button:hover {
+      background-color: #355C7D;
+    }
+    .time-slots {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .time-slot-button {
+      margin: 5px;
+      padding: 8px 16px;
+      font-size: 14px;
+      background-color: #F67280;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .time-slot-button:hover {
+      background-color: #C06C84;
+    }
+    .confirmation {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .confirmation button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #6C5B7B;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .confirmation button:hover {
+      background-color: #355C7D;
+    }
+    .confirmation p {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Appointments</h1>
+    <h2>Doctors available</h2>
+    <ul class="doctor-list">
+      <li><button class="doctor-button" onclick="selectDoctor('Dr. Amit Mehta')">Dr. Amit Mehta</button></li>
+      <li><button class="doctor-button" onclick="selectDoctor('Dr. Vaishnav Reddy')">Dr. Vaishnav Reddy</button></li>
+      <li><button class="doctor-button" onclick="selectDoctor('Dr. Pranav Kumar')">Dr. Pranav Kumar</button></li>
+      <li><button class="doctor-button" onclick="selectDoctor('Dr. Shankar Sharma')">Dr. Shankar Sharma</button></li>
+      <li><button class="doctor-button" onclick="selectDoctor('Dr. Prakash Teja')">Dr. Prakash Teja</button></li>
+      <li><button class="doctor-button" onclick="selectDoctor('Dr. Ankur Tomar')">Dr. Ankur Tomar</button></li>
+    </ul>
+    <div class="time-slots" id="time-slots" style="display: none;">
+      <h2 id="selected-doctor-heading"></h2>
+      <div id="doctor-time-slots"></div>
+    </div>
+    <div class="confirmation" id="confirmation" style="display: none;">
+      <button onclick="confirmBooking()">Confirm Booking</button>
+      <p id="confirmation-message"></p>
+    </div>
+  </div>
+
+  <script>
+    let selectedDoctor = '';
+    let selectedTimeSlot = '';
+
+    const doctors = {
+      'Dr. Amit Mehta': ['11:00am', '11:45am', '12:30pm', '1:15pm', '2:00pm', '2:45pm', '3:30pm', '4:15pm', '5:00pm'],
+      'Dr. Vaishnav Reddy': ['11:00am', '11:45am', '12:30pm', '1:15pm', '2:00pm', '2:45pm', '3:30pm', '4:15pm', '5:00pm'],
+      'Dr. Pranav Kumar': ['11:00am', '11:45am', '12:30pm', '1:15pm', '2:00pm', '2:45pm', '3:30pm', '4:15pm', '5:00pm'],
+      'Dr. Shankar Sharma': ['11:00am', '11:45am', '12:30pm', '1:15pm', '2:00pm', '2:45pm', '3:30pm', '4:15pm', '5:00pm'],
+      'Dr. Prakash Teja': ['11:00am', '11:45am', '12:30pm', '1:15pm', '2:00pm', '2:45pm', '3:30pm', '4:15pm', '5:00pm'],
+      'Dr. Ankur Tomar': ['11:00am', '11:45am', '12:30pm', '1:15pm', '2:00pm', '2:45pm', '3:30pm', '4:15pm', '5:00pm']
+    };
+
+    function selectDoctor(doctor) {
+      selectedDoctor = doctor;
+      const timeSlots = doctors[doctor];
+      document.getElementById('selected-doctor-heading').innerText = `Select a time slot for ${doctor}:`;
+      const timeSlotButtons = timeSlots.map(slot => `<button class="time-slot-button" onclick="selectTimeSlot('${slot}')">${slot}</button>`).join('');
+      document.getElementById('doctor-time-slots').innerHTML = timeSlotButtons;
+      document.getElementById('time-slots').style.display = 'block';
+    }
+
+    function selectTimeSlot(timeSlot) {
+      selectedTimeSlot = timeSlot;
+      document.getElementById('confirmation').style.display = 'block';
+    }
+
+    function confirmBooking() {
+      if (selectedDoctor && selectedTimeSlot) {
+        document.getElementById('confirmation-message').innerText = `Your booking with ${selectedDoctor} at ${selectedTimeSlot} has been confirmed.`;
+      } else {
+        alert('Please select a doctor and a time slot before confirming booking.');
+      }
+    }
+  </script>
+</body>
+</html>
